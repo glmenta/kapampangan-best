@@ -15,6 +15,7 @@ const app = express();
 
 app.use(morgan('dev'));
 
+
 app.use(cookieParser());
 app.use(express.json());
 
@@ -41,6 +42,8 @@ if (!isProduction) {
         }
         })
 );
+
+app.use(routes);
 
 app.use((_req, _res, next) => {
     const err = new Error("The requested resource couldn't be found.");
@@ -75,7 +78,6 @@ app.use((err, _req, res, _next) => {
     });
 });
 
-app.use(routes);
 
 
 module.exports = app;

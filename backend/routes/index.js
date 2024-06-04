@@ -13,12 +13,6 @@ router.get('/hello/world', function(req, res) {
     res.send('Hello World!');
 });
 
-router.get('/test', function(req, res) {
-
-    res.cookie('XSRF-TOKEN', req.csrfToken());
-    res.send('test!');
-});
-
 router.get('/', function(req, res) {
     console.log('hit route')
     res.cookie('XSRF-TOKEN', req.csrfToken());
